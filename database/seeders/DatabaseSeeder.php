@@ -13,13 +13,24 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        // User::factory(10)->create();
+    public function run(): void{
+        $this->call([
+            // Catálogos (datos fijos sacados de database/data)
+            ZoneSeeder::class,
+            FeatureSeeder::class,
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            // Personas
+            TestUserSeeder::class,   // usuarios fijos para iniciar sesión
+            PeopleSeeder::class,     // propietarios, clientes y agentes inventados
+
+            // Casas (con sus features y los favoritos de los clientes)
+            PropertySeeder::class,
+
+            // Actividad sobre las casas
+            VisitSeeder::class,
+            SaleSeeder::class,       // ventas + comisiones
         ]);
+
+
     }
 }
