@@ -53,9 +53,8 @@ class PropertyFactory extends Factory{
 
             // Mayoría disponibles; las vendidas deberían tener su venta (lo cuadra el seeder)
             'status'       => fake()->randomElement(['available', 'available', 'available', 'reserved', 'sold']),
-            'is_exclusive' => fake()->boolean(20), // ~1 de cada 5, solo para premium
+            'is_exclusive' => fake()->boolean(20),
             'portfolio_entry_date' => $entryDate,
-            // Se publica después de entrar en cartera; ~10 % sin publicar todavía
             'published_at' => fake()->boolean(90) ? fake()->dateTimeBetween($entryDate, 'now') : null,
         ];
     }

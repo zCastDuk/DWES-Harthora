@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Harthora · Inmobiliaria de lujo</title>
-
-    @fonts
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="min-h-screen bg-white text-slate-800 antialiased">
-
-{{-- ===== Cabecera ===== --}}
-<header class="border-b border-cyan-100">
-</header>
-
-<main>
+<x-layouts.app title="Harthora · Inmobiliaria de lujo">
     {{-- ===== Portada ===== --}}
     <section class="bg-gradient-to-b from-cyan-50 to-white">
         <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
@@ -78,15 +61,4 @@
             </article>
         </div>
     </section>
-</main>
-
-{{-- ===== Pie ===== --}}
-<footer class="border-t border-cyan-100 bg-cyan-50/50">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-8 text-sm text-slate-500 md:flex-row">
-        <p><span class="font-semibold text-cyan-700">Harthora</span> · Inmobiliaria de lujo</p>
-        <p>&copy; {{ date('Y') }} · Proyecto DWES</p>
-    </div>
-</footer>
-
-</body>
-</html>
+</x-layouts.app>

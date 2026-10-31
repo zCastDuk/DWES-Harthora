@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Client extends Model{
     use HasFactory;
 
-    //Comprobar si tiene acceso a "Catalogo Especial"
+    //Comprobar si tiene acceso a "catalogo Especial"
     protected function casts(): array{
         return [
             'is_premium' => 'boolean',
