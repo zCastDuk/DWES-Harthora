@@ -19,9 +19,9 @@ class PropertySeeder extends Seeder
 {
     // Rango de sobrecoste (en euros) según el nivel de la feature
     private const SURCHARGE_RANGES = [
-        'low'    => [1000, 9000],     // experiencial: menos de 10.000 €
+        'low' => [1000, 9000],     // experiencial: menos de 10.000 €
         'medium' => [10000, 20000],   // ubicación o acceso
-        'high'   => [20000, 25000],   // construcción
+        'high' => [20000, 25000],   // construcción
     ];
 
     public function run(): void
@@ -93,8 +93,7 @@ class PropertySeeder extends Seeder
         foreach (Client::all() as $client) {
             // Solo puede guardar casas que puede ver:
             // las ya publicadas en el catálogo general, y si es premium, también las exclusivas en su mes
-            $visible = $properties->filter(fn ($p) =>
-                ($p->published_at !== null && $p->published_at->isPast())
+            $visible = $properties->filter(fn ($p) => ($p->published_at !== null && $p->published_at->isPast())
                 || ($p->is_exclusive && $client->is_premium)
             );
 

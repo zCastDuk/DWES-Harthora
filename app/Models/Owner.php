@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['name', 'last_name', 'nif', 'phone', 'email'])]
-class Owner extends Model{
+class Owner extends Model
+{
     use HasFactory;
 
-    public function properties(): HasMany{
+    public function properties(): HasMany
+    {
         return $this->hasMany(Property::class);
     }
 }

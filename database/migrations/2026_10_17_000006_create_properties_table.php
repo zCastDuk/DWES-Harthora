@@ -1,9 +1,11 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('properties', function (Blueprint $table) {
@@ -21,7 +23,6 @@ return new class extends Migration {
             $table->unsignedTinyInteger('bathrooms');
             $table->decimal('usable_area', 8, 2);
             $table->decimal('built_area', 8, 2);
-
 
             $table->string('address');
             $table->string('postal_code', 10);          // código postal: texto, para no perder ceros (03001)
@@ -41,7 +42,8 @@ return new class extends Migration {
         });
     }
 
-    public function down(): void{
+    public function down(): void
+    {
         Schema::dropIfExists('properties');
-}
+    }
 };

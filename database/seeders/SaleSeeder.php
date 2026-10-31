@@ -18,7 +18,7 @@ class SaleSeeder extends Seeder
 {
     public function run(): void
     {
-        $clients    = Client::all();
+        $clients = Client::all();
         // Solo los financieros validan o rechazan ventas
         $financials = Agent::where('role', 'financial')->get();
 
@@ -30,7 +30,7 @@ class SaleSeeder extends Seeder
 
             $data = [
                 'property_id' => $property->id,
-                'client_id'   => $buyer->id,
+                'client_id' => $buyer->id,
             ];
 
             if ($property->status === 'sold') {

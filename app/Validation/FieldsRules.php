@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Fichero Reglas de validación para formularios
  * */

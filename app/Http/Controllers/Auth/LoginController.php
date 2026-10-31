@@ -1,19 +1,17 @@
 <?php
 
-
 namespace App\Http\Controllers\Auth;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\Auth\RegisterRequest;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+
 class LoginController extends Controller
 {
-    public function create():View
+    public function create(): View
     {
         return view('forms.login');
     }
@@ -27,15 +25,16 @@ class LoginController extends Controller
                 ->onlyInput('email');
         }
 
-
         $request->session()->regenerate();
 
         $route = match ($request->user()->roles()) {
-            'client'     => 'properties',
+            'client' => 'properties',
             'commercial' => 'commercial.dashboard',
-            'financial'  => 'financial.dashboard',
+            'financial' => 'financial.dashboard',
             'management' => 'management.dashboard',
+            default      => 'home',
         };
+
         return redirect()->route($route);
     }
 

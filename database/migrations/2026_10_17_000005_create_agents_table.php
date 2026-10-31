@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,8 +12,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
 
-            //Un agente puede ser commercial, financiero o directivo.
-            //Bifurcación en comercial: novato y senior. Calculable
+            // Un agente puede ser commercial, financiero o directivo.
+            // Bifurcación en comercial: novato y senior. Calculable
             $table->enum('role', ['commercial', 'financial', 'management']);
             $table->date('hire_date');
             $table->index('role');
@@ -21,7 +22,8 @@ return new class extends Migration
 
     }
 
-    public function down(): void{
+    public function down(): void
+    {
         Schema::dropIfExists('agents');
     }
 };

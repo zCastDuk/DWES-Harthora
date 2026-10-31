@@ -19,6 +19,7 @@ class ValidNif implements ValidationRule
 
         if (! preg_match('/^[XYZ0-9]\d{7}[A-Z]$/', $nif)) {
             $fail('El :attribute no tiene un formato válido.');
+
             return;
         }
 

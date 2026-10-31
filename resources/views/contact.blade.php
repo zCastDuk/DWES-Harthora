@@ -25,16 +25,15 @@
             <div class="rounded-3xl bg-white p-8 shadow-xl">
                 <form class="space-y-6" method="POST" action="{{route ('contact')}}">
                     @csrf
-                    <x-forms.input name="name" label="Nombre" placeholder="Déjanos tu nombre" type="text" required/>
-                    <x-forms.input name="email" label="Email" placeholder="Tu email para poder contactar" type="email" required/>
-
+                    <div class="grid md:grid-cols-1">
+                        <x-forms.label name="name" label="Nombre"/>
+                        <x-forms.input name="name" placeholder="Déjanos tu nombre" type="text" required/>
+                        <x-forms.label name="email" label="Email"/>
+                        <x-forms.input name="email" placeholder="Tu email para poder contactar" type="email" required/>
+                    </div>
                     <div>
-                        <label for="subject" class="block text-sm font-medium text-slate-700">Mensaje</label>
-                        <textarea id="subject" name="subject" rows="4" placeholder="Cuéntanos tu caso"
-                                  class="mt-2 w-full rounded-xl border border-cyan-200 px-4 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"></textarea>
-                        @error('mensaje')
-                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                        <x-forms.label name="subject" label="Mensaje"/>
+                        <x-forms.textarea id="subject" name="subject" placeholder="Cuentanos tu caso"/>
                     </div>
 
                     <button type="submit"

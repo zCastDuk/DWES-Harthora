@@ -32,7 +32,7 @@ class VisitSeeder extends Seeder
 
             Visit::factory()->create([
                 'property_id' => $property->id,
-                'client_id'   => $client->id,
+                'client_id' => $client->id,
             ]);
         }
     }

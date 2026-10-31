@@ -9,16 +9,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['owner_id','agent_id','zone_id',
-            'title','description', 'type',
-            'price','bedrooms', 'bathrooms',
-            'usable_area', 'built_area', 'address',
-            'postal_code', 'status', 'is_exclusive',
-            'portfolio_entry_date', 'published_at',])]
-class Property extends Model{
+#[Fillable(['owner_id', 'agent_id', 'zone_id',
+    'title', 'description', 'type',
+    'price', 'bedrooms', 'bathrooms',
+    'usable_area', 'built_area', 'address',
+    'postal_code', 'status', 'is_exclusive',
+    'portfolio_entry_date', 'published_at', ])]
+class Property extends Model
+{
     use HasFactory;
 
-    protected function casts(): array{
+    protected function casts(): array
+    {
         return [
             'price' => 'decimal:2',
             'usable_area' => 'decimal:2',
@@ -29,35 +31,42 @@ class Property extends Model{
         ];
     }
 
-    public function owner(): BelongsTo{
+    public function owner(): BelongsTo
+    {
         return $this->belongsTo(Owner::class);
     }
 
-    public function agent(): BelongsTo{
+    public function agent(): BelongsTo
+    {
         return $this->belongsTo(Agent::class);
     }
 
-    public function zone(): BelongsTo{
+    public function zone(): BelongsTo
+    {
         return $this->belongsTo(Zone::class);
     }
 
-    public function features(): BelongsToMany{
+    public function features(): BelongsToMany
+    {
         return $this->belongsToMany(Feature::class)
             ->withPivot('detail', 'estimated_value')
             ->withTimestamps();
     }
 
-    public function favoritedBy(): BelongsToMany{
+    public function favoritedBy(): BelongsToMany
+    {
         return $this->belongsToMany(Client::class, 'favorites')
             ->withPivot('note', 'price_drop_alert')
             ->withTimestamps();
     }
 
-    public function visits(): HasMany{
+    public function visits(): HasMany
+    {
         return $this->hasMany(Visit::class);
     }
 
-    public function sales(): HasMany{
+    public function sales(): HasMany
+    {
         return $this->hasMany(Sale::class);
     }
 }

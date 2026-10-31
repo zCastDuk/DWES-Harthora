@@ -13,7 +13,7 @@ use App\Models\Zone;
 // ---- 1:1 -> users <-> clients ----
 test('un usuario tiene su perfil de cliente y el cliente conoce a su usuario', function () {
     $client = Client::factory()->create();
-    $user   = $client->user;
+    $user = $client->user;
 
     expect($user)->toBeInstanceOf(User::class)
         ->and($user->type)->toBe('client')
@@ -41,7 +41,7 @@ test('un cliente guarda casas en favoritos con nota y puede cambiar la alerta de
 
     // Crear: attach(id, [columnas extra de la pivote])
     $client->favorites()->attach($villa->id, [
-        'note'             => 'Preguntar por la financiación',
+        'note' => 'Preguntar por la financiación',
         'price_drop_alert' => false,
     ]);
     $client->favorites()->attach($atico->id);

@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 #[Fillable(['name', 'surcharge_tier'])]
-class Feature extends Model{
+class Feature extends Model
+{
     use HasFactory;
 
-    public function properties(): BelongsToMany{
+    public function properties(): BelongsToMany
+    {
         return $this->belongsToMany(Property::class)
             ->withPivot('detail', 'estimated_value')
             ->withTimestamps();
