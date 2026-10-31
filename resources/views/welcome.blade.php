@@ -1,5 +1,4 @@
 <x-layouts.app title="Harthora · Inmobiliaria de lujo">
-    {{-- ===== Portada ===== --}}
     <section class="bg-gradient-to-b from-cyan-50 to-white">
         <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
             <div>
@@ -14,16 +13,15 @@
                     con un equipo que te acompaña de la primera visita a la firma.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-4">
-                    <a href="#" class="rounded-full bg-cyan-500 px-7 py-3 font-medium text-white shadow-md hover:bg-cyan-600">
+                    <a href="{{route('properties')}}" class="rounded-full bg-cyan-500 px-7 py-3 font-medium text-white shadow-md hover:bg-cyan-600">
                         Ver catálogo
                     </a>
-                    <a href="#" class="rounded-full border border-cyan-300 px-7 py-3 font-medium text-cyan-700 hover:bg-cyan-50">
+                    <a href="{{route ('register')}}" class="rounded-full border border-cyan-300 px-7 py-3 font-medium text-cyan-700 hover:bg-cyan-50">
                         Hazte cliente premium
                     </a>
                 </div>
             </div>
 
-            {{-- Bloque decorativo provisional, hasta que haya fotos --}}
             <div class="relative hidden aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-300 via-cyan-400 to-teal-500 shadow-xl md:block">
                 <div class="absolute inset-x-8 bottom-8 rounded-2xl bg-white/90 p-5 backdrop-blur">
                     <p class="text-xs font-semibold uppercase tracking-widest text-cyan-600">Novedad premium</p>

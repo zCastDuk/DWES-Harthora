@@ -18,8 +18,8 @@ class Agent extends Model {
     public const NOVICE_PERCENTAGE = 5;   // menos de 5 años
     public const SENIOR_PERCENTAGE = 10;  // al cumplir 5 años
     public const SENIOR_FROM_YEARS = 5;
-    public const RAISE_EVERY_YEARS = 3;   // cada 3 años desde que es senior...
-    public const RAISE_PERCENTAGE  = 2;   // ...sube un 2 %
+    public const RAISE_EVERY_YEARS = 3;
+    public const RAISE_PERCENTAGE  = 2;
     public const MAX_PERCENTAGE    = 26;  // tope
 
     //Convertir a fecha para calcular comisiones

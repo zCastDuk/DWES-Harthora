@@ -14,19 +14,19 @@
             <fieldset class="grid gap-6 md:grid-cols-1">
                 <!--Email y dirección-->
                 <x-forms.input name="email" label="Correo Electrónico" type="email" required/>
-                <x-forms.input name="tax_address" label="Dirección fiscal" type="text`" required/>
+                <x-forms.input name="tax_address" label="Dirección fiscal" type="text" required/>
 
             </fieldset>
             <fieldset class="grid gap-6 md:grid-cols-2">
                 <!--Nif y telefono -->
                 <x-forms.input name="nif" label="NIF/DNI" type="text" required/>
-                <x-forms.input name="phone" label="Número de telefono" type="tel`" />
+                <x-forms.input name="phone" label="Número de telefono" type="text" />
             </fieldset>
 
             <fieldset class="grid gap-6 md:grid-cols-1">
                 <!--Contraseña y confirmación-->
                 <x-forms.input name="password" label="Contraseña" type="password" required/>
-                <x-forms.input name="password_confirmation" label="Confirmar contraseña" type="password`" required/>
+                <x-forms.input name="password_confirmation" label="Confirmar contraseña" type="password" required/>
             </fieldset>
 
             <button type="submit" class="w-full rounded-full cursor-pointer bg-cyan-500 px-7 py-3 font-medium text-white shadow-md hover:bg-cyan-600">

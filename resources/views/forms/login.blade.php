@@ -8,7 +8,7 @@
             @csrf
             <fieldset class="grid gap-6 md:grid-cols-1">
                 <x-forms.input name="email" label="Correo Electrónico" type="email" required/>
-                <x-forms.input name="password" label="Contraseña" type="password`" required/>
+                <x-forms.input name="password" label="Contraseña" type="password" required/>
             </fieldset>
 
             <button type="submit" class="w-full rounded-full cursor-pointer bg-cyan-500 px-7 py-3 font-medium text-white shadow-md hover:bg-cyan-600">

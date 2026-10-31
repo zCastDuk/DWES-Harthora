@@ -11,7 +11,9 @@ use App\Http\Controllers\Auth\LoginController;
 Route::view('/', 'welcome')->name('home');
 Route::view('/about', 'about')->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/properties', [CatalogController::class, 'index'])->name('properties');
+Route::get('/properties/{property}', [CatalogController::class, 'show'])->name('properties.show');
 
 //Rutas privadas
 Route::middleware("guest")->group(function () {
@@ -26,7 +28,7 @@ Route::middleware("guest")->group(function () {
 Route::middleware("auth")->group(function () {
 
     //Cerrar sesión
-    Route::post('/login',[LoginController::class, 'logout'])->name('logout');
+    Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 
 
     Route::middleware('role:client')->prefix('client')->name('client.')->group(function () {

@@ -1,1 +1,1 @@
-<h1>Hola</h1>
+<h1>Vista del catalogo. En construcción</h1>
