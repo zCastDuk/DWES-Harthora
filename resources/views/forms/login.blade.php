@@ -20,7 +20,8 @@
             ¿No tienes cuenta? <br>
             <a href="{{ route('register') }}" class="font-medium text-cyan-700 hover:text-cyan-500">¡Crea tu cuenta ahora!</a>
         </p>
-
-
+        @if (session('success'))
+            <p class="rounded-xl bg-cyan-50 p-4 text-cyan-800">{{ session('success') }}</p>
+        @endif
     </section>
 </x-layouts.app>

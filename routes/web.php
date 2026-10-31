@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommercialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FinancialController;
+use App\Http\Controllers\ManagementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -29,13 +33,13 @@ Route::middleware("auth")->group(function () {
 
     //Cerrar sesión
     Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile', [ClientController::class, 'show'])->name('profile');
 
 
     Route::middleware('role:client')->prefix('client')->name('client.')->group(function () {
         //Ver visitas para clientes
         //Route::get('/visits', [ClientController::class, 'visits'])->name('visits');
         //Revisar y editar el perfil
-        //Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
         //Route::get('/profile/favorites', [ClientController::class, 'favorites'])->name('favorites');
         //Route::patch('/profile/edit', [ClientController::class, 'update']);
 
@@ -49,6 +53,7 @@ Route::middleware("auth")->group(function () {
         //Route::get('/properties/{id}', [AgentController::class, 'show']);
         //Route::get('/sales', [AgentController::class, 'sales']);
         //Route::get('/comissions', [AgentController::class, 'commissions']);
+        Route::get('/dashboard', [CommercialController::class, 'show'])->name('dashboard');
 
     });
 
@@ -57,10 +62,11 @@ Route::middleware("auth")->group(function () {
         //Route::get('/sales/{id}', [FinancialController::class, 'show']);
         //Route::patch('/sales/{id}/validate', [FinancialController::class, 'validate']);
         //Route::patch('/sales/{id}/reject', [FinancialController::class, 'destroy']);
+        Route::get('/dashboard', [FinancialController::class, 'show'])->name('dashboard');
 
     });
 
     Route::middleware('role:management')->prefix('management')->name('management.')->group(function () {
-
+        Route::get('/dashboard', [ManagementController::class, 'show'])->name('dashboard');
     });
 });

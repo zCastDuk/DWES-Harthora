@@ -12,11 +12,16 @@ return new class extends Migration {
     public function up(): void{
         Schema::create('owners', function(Blueprint $table){
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
-            $table->string('nif', 20)->unique();
+            $table->string('company_name');
+            $table->string('cif', 20)->unique();
+            $table->string('address');
             $table->string('phone');
             $table->string('email');
+            $table->string('type');
+            $table->string('logo')->nullable();
+            $table->string('website')->nullable();
+            $table->string('description')->nullable();
+
 
             $table->timestamps();
 

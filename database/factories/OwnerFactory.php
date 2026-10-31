@@ -11,12 +11,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class OwnerFactory extends Factory{
     public function definition(): array{
         return [
-            'name'      => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            // nif es unique en la migración: unique() evita que Faker lo repita
-            'nif'       => fake()->unique()->dni(),
-            'phone'     => fake()->numerify('6########'),
-            'email'     => fake()->safeEmail(),
+            'company_name'          => fake()->company(),
+            // cif es unique en la migración: unique() evita que Faker lo repita
+            'cif'                   => fake()->unique()->vat(),
+            'phone'                 => fake()->numerify('6########'),
+            'address'               => fake()->address(),
+            'email'                 => fake()->companyEmail(),
+            'type'                  => fake()->randomElement(['developer', 'architecture_studio']),
+            'logo'                  => null,
+            'website'               => null,
+            'description'           => null,
         ];
     }
 }

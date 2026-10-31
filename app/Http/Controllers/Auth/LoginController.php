@@ -27,9 +27,16 @@ class LoginController extends Controller
                 ->onlyInput('email');
         }
 
+
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home'));
+        $route = match ($request->user()->roles()) {
+            'client'     => 'properties',
+            'commercial' => 'commercial.dashboard',
+            'financial'  => 'financial.dashboard',
+            'management' => 'management.dashboard',
+        };
+        return redirect()->route($route);
     }
 
     public function logout(Request $request): RedirectResponse

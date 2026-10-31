@@ -9,10 +9,22 @@
         <li><a href={{route('contact')}} class="hover:text-cyan-600">Contacto</a></li>
     </ul>
 
+    @guest
     <div class="flex items-center gap-3 text-sm font-medium">
-        <a href="{{route('login')}}" class="px-3 py-2 text-cyan-700 hover text-cyan-500">Iniciar sesión</a>
-        <a href="{{route('register')}}" class="rounded-full bg-cyan-500 px-5 py-2 text-whit :shadow-sm hover:bg-cyan-600">
+        <a href="{{route('login')}}" class="px-3 py-2 text-cyan-700 hover:text-cyan-500">Iniciar sesión</a>
+        <a href="{{route('register')}}" class="rounded-full bg-cyan-500 px-5 py-2 text-white shadow-sm hover:bg-cyan-600">
             Registrarse
         </a>
     </div>
+    @endguest
+
+    @auth
+        <div class="flex items-center gap-3 text-sm font-medium">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="cursor-pointer px-3 py-2 text-cyan-700 hover:text-cyan-500">Salir</button>
+            </form>
+            <a href="{{route('profile')}}" class="px-3 py-2 text-cyan-700 hover:text-cyan-500">Mi perfil</a>
+        </div>
+    @endauth
 </nav>

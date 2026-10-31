@@ -29,9 +29,12 @@
                     <x-forms.input name="email" label="Email" placeholder="Tu email para poder contactar" type="email" required/>
 
                     <div>
-                        <label for="mensaje" class="block text-sm font-medium text-slate-700">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos tu caso"
+                        <label for="subject" class="block text-sm font-medium text-slate-700">Mensaje</label>
+                        <textarea id="subject" name="subject" rows="4" placeholder="Cuéntanos tu caso"
                                   class="mt-2 w-full rounded-xl border border-cyan-200 px-4 py-3 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"></textarea>
+                        @error('mensaje')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <button type="submit"
