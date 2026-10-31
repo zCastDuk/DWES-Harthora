@@ -4,7 +4,8 @@
         <p class="mt-3 text-center text-slate-600">Guarda tus casas favoritas y solicita visitas.</p>
 
         <!--Campos del formulario -->
-        <form class="mt-10 space-y-6">
+        <form class="mt-10 space-y-6" method="POST" action= {{route ('register')}}>
+            @csrf
             <fieldset class="grid gap-6 md:grid-cols-2">
                 <!--Nombre y apellidos -->
                 <x-forms.input name="name" label="Nombre" type="text" required/>
@@ -18,13 +19,13 @@
             </fieldset>
             <fieldset class="grid gap-6 md:grid-cols-2">
                 <!--Nif y telefono -->
-                <x-forms.input name="nif" label="NIF/DNI" type="text`" required/>
+                <x-forms.input name="nif" label="NIF/DNI" type="text" required/>
                 <x-forms.input name="phone" label="Número de telefono" type="tel`" />
             </fieldset>
 
             <fieldset class="grid gap-6 md:grid-cols-1">
                 <!--Contraseña y confirmación-->
-                <x-forms.input name="password" label="Contraseña" type="password`" required/>
+                <x-forms.input name="password" label="Contraseña" type="password" required/>
                 <x-forms.input name="password_confirmation" label="Confirmar contraseña" type="password`" required/>
             </fieldset>
 

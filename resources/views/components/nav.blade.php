@@ -4,14 +4,14 @@
     </a>
 
     <ul class="hidden gap-8 text-sm font-medium text-slate-600 md:flex">
-        <li><a href="/properties" class="hover:text-cyan-600">Catálogo</a></li>
-        <li><a href="/about" class="hover:text-cyan-600">La agencia</a></li>
-        <li><a href="/contact" class="hover:text-cyan-600">Contacto</a></li>
+        <li><a href={{route('properties')}} class="hover:text-cyan-600">Catálogo</a></li>
+        <li><a href={{route('about')}} class="hover:text-cyan-600">La agencia</a></li>
+        <li><a href={{route('contact')}} class="hover:text-cyan-600">Contacto</a></li>
     </ul>
 
     <div class="flex items-center gap-3 text-sm font-medium">
-        <a href="/login" class="px-3 py-2 text-cyan-700 hover:text-cyan-500">Iniciar sesión</a>
-        <a href="/register" class="rounded-full bg-cyan-500 px-5 py-2 text-white shadow-sm hover:bg-cyan-600">
+        <a href={{route('login')}} class="px-3:py-2:text-cyan-700:hover:text-cyan-500">Iniciar sesión</a>
+        <a href={{route('register')}} class="rounded-full:bg-cyan-500:px-5:py-2:text-white:shadow-sm:hover:bg-cyan-600">
             Registrarse
         </a>
     </div>

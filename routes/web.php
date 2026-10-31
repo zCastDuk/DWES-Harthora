@@ -1,23 +1,62 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
+
+//Rutas públcas. Todos pueden verlas
 Route::view('/', 'welcome')->name('home');
 Route::view('/about', 'about')->name('about');
-Route::view('/contact', 'contact')->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/properties', [CatalogController::class, 'index'])->name('properties');
 
-Route::view('/register', 'Forms.register')->name('register');
-Route::view('/login', 'Forms.login')->name('login');
-Route::view('/properties', 'Catalogo.index')->name('properties');
-
-//Rutas no activas aún
-//Eenseña la vista individual de la casa
-//Route::view('/properties/{id}', 'catalogo.show')->name('properties.show');
-
+//Rutas privadas
 Route::middleware("guest")->group(function () {
-    Route::view('/register', 'Forms.register')->name('register');
-    Route::view('/login', 'Forms.login')->name('login');
+    //Login
+    Route::get('/login',[LoginController::class, 'create'])->name('login');
+    Route::post('/login',[LoginController::class, 'store']);
+
+    //Registro
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store']);
 });
 Route::middleware("auth")->group(function () {
+
+    //Cerrar sesión
+    Route::post('/login',[LoginController::class, 'logout'])->name('logout');
+
+
+    Route::middleware('role:client')->prefix('client')->name('client.')->group(function () {
+        //Ver visitas para clientes
+        //Route::get('/visits', [ClientController::class, 'visits'])->name('visits');
+        //Revisar y editar el perfil
+        //Route::get('/profile', [ClientController::class, 'profile'])->name('profile');
+        //Route::get('/profile/favorites', [ClientController::class, 'favorites'])->name('favorites');
+        //Route::patch('/profile/edit', [ClientController::class, 'update']);
+
+    });
+
+    Route::middleware('role:commercial')->prefix('commercial')->name('commercial.')->group(function () {
+        //Ver visitas para agentes
+        //Route::get('/visits', [UserController::class, 'visits'])->name('visits');
+        //Route::get('/visits/reject', [AgentController::class, 'reject']);
+        //Route::get('/properties', [AgentController::class, 'properties'])->name('your-properties');
+        //Route::get('/properties/{id}', [AgentController::class, 'show']);
+        //Route::get('/sales', [AgentController::class, 'sales']);
+        //Route::get('/comissions', [AgentController::class, 'commissions']);
+
+    });
+
+    Route::middleware('role:financial')->prefix('financial')->name('financial.')->group(function () {
+        //Route::get('/sales', [FinancialController::class, 'index']);
+        //Route::get('/sales/{id}', [FinancialController::class, 'show']);
+        //Route::patch('/sales/{id}/validate', [FinancialController::class, 'validate']);
+        //Route::patch('/sales/{id}/reject', [FinancialController::class, 'destroy']);
+
+    });
+
 
 });

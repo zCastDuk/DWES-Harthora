@@ -27,9 +27,9 @@
                     <p class="text-xs font-semibold uppercase tracking-widest text-blue-950">Redes sociales</p>
                     <br>
                     <div class="flex flex-wrap gap-4">
-                        <a><img width="24px" src="#"></a>
-                        <a><img width="24px" src="#"></a>
-                        <a><img width="24px" src="#"></a>
+                        <a><img alt="Instagram" width="24px" src="#"></a>
+                        <a><img alt="LinkedIn" width="24px" src="#"></a>
+                        <a><img alt="Facebook" width="24px" src="#"></a>
                     </div>
                 </div>
             </div>

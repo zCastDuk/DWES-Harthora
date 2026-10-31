@@ -4,7 +4,8 @@
         <p class="mt-3 text-center text-slate-600">Guarda tus casas favoritas y solicita visitas.</p>
 
         <!--Campos del formulario -->
-        <form class="mt-10 space-y-6">
+        <form class="mt-10 space-y-6" method="POST" action= {{route ('login')}}>
+            @csrf
             <fieldset class="grid gap-6 md:grid-cols-1">
                 <x-forms.input name="email" label="Correo Electrónico" type="email" required/>
                 <x-forms.input name="password" label="Contraseña" type="password`" required/>
