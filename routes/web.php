@@ -60,5 +60,7 @@ Route::middleware("auth")->group(function () {
 
     });
 
+    Route::middleware('role:management')->prefix('management')->name('management.')->group(function () {
 
+    });
 });
