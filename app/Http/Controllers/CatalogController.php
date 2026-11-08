@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\View\View;
 
 class CatalogController extends Controller
@@ -19,7 +20,7 @@ class CatalogController extends Controller
     public function show(Property $property): View
     {
         $property->load(['zone', 'features']);
-
+        Gate::authorize('view', $property);
         return view('catalogo.show', ['property' => $property]);
     }
 }
